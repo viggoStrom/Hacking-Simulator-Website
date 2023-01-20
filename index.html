@@ -11,21 +11,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="style/desktop.css">
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>Connecting to: ...</h1>
+        <span>
+            <h1>Connecting to: ...</h1>
+        </span>
+        
         <img onclick="" src="assets/icons/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="Options">
     </header>
 
     <section>
-        <p>Main text flow goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda doloremque, qui asperiores debitis recusandae modi magnam deleniti harum voluptate, itaque quidem unde, distinctio aliquam dolores rem quae ratione a provident! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, fugiat pariatur placeat cumque commodi sint, nobis excepturi quia temporibus reiciendis deserunt, quo sed cupiditate ducimus iusto at quam debitis adipisci.</p>
+        <p>Main text flow goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda doloremque, qui
+            asperiores debitis recusandae modi magnam deleniti harum voluptate, itaque quidem unde, distinctio aliquam
+            dolores rem quae ratione a provident! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam,
+            fugiat pariatur placeat cumque commodi sint, nobis excepturi quia temporibus reiciendis deserunt, quo sed
+            cupiditate ducimus iusto at quam debitis adipisci.</p>
     </section>
 
-    <script src="script/script.jsx"></script>
+    <script src="script/script.jsx" type="text/babel"></script>
 </body>
 
 </html>
