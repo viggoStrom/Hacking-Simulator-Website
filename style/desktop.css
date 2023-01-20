@@ -1,3 +1,36 @@
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
+}
+
+body {
+    background-color: #111111;
+    font-family: "Roboto Mono", "Courier New", monospace;
+    color: green;
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0 0 0 1rem;
+}
+
+header img {
+    margin: 0 1rem 0 0;
+    height: 3rem;
+    aspect-ratio: 1/1;
+    filter: invert(11%) sepia(0%) saturate(129%) hue-rotate(252deg) brightness(94%) contrast(90%);
+}
+
+header img:hover {
+    filter: invert(14%) sepia(0%) saturate(581%) hue-rotate(147deg) brightness(98%) contrast(81%);
+}
+
+section p {
+    margin: 1rem 0 0 1rem;
+    max-width: 70%;
 }
