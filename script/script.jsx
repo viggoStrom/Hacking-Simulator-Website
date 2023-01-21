@@ -37,14 +37,25 @@ let code = [
 
 let linesOfText = []
 
-root = ReactDOM.createRoot(document.querySelector("section ul"))
+root = ReactDOM.createRoot(document.querySelector("section"))
+
+const linesToBeDrawBeforeScrolling = Math.floor(window.innerHeight * .8 / 21)
+
+const textJSON = fetch("/json/text.json");
+console.log(textJSON.linesOfText[0]);
 
 document.addEventListener("keyup", (event) => {
+
+    if (document.querySelectorAll("section ul li").length > linesToBeDrawBeforeScrolling) {
+        document.querySelectorAll("section ul li")[0].remove()
+    }
+
     linesOfText.push(code.random());
 
-    const completeListToBeRendered = linesOfText.map((row) =>
+    var completeListToBeRendered = linesOfText.map((row) =>
         <li>{row}</li>
     );
+
 
     root.render(<ul>{completeListToBeRendered}</ul>)
 });
