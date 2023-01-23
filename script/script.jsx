@@ -28,7 +28,7 @@ Array.prototype.random = function() {
 }
 
 // source text from https://github.com/ubuntu/gnome-shell-extension-appindicator/blob/5ebb018e7b2d0219d3cf25c69f5d988b7a53121b/indicatorStatusIcon.js
-import text from "/json/text.json"
+import text from "./json/text.json"
 // const codeSnippets = [
 //     "const AppDisplay = imports.ui.appDisplay;",
 //     "const Main = imports.ui.main;",
@@ -36,7 +36,7 @@ import text from "/json/text.json"
 //     "const PanelMenu = imports.ui.panelMenu;"
 // ]
 
-// const codeSnippets = text.row
+const codeSnippets = text.row
 
 const indent = "\u00A0\u00A0\u00A0\u00A0"
 const linesToBeDrawBeforeScrolling = Math.floor(window.innerHeight * .8 / 21)
@@ -51,7 +51,7 @@ document.addEventListener("keyup", (event) => {
         document.querySelectorAll("section ul li")[0].remove()
     }
 
-    linesOfText.push(text.row.random());
+    linesOfText.push(codeSnippets.random());
 
     var completeListToBeRendered = linesOfText.map((row) =>
         <li>{row}</li>
