@@ -28,7 +28,7 @@ Array.prototype.random = function() {
 }
 
 // source text from https://github.com/ubuntu/gnome-shell-extension-appindicator/blob/5ebb018e7b2d0219d3cf25c69f5d988b7a53121b/indicatorStatusIcon.js
-import text from "./json/text.json"
+import text from "/json/text.json"
 // const codeSnippets = [
 //     "const AppDisplay = imports.ui.appDisplay;",
 //     "const Main = imports.ui.main;",
