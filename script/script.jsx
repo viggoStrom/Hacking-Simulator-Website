@@ -23,12 +23,23 @@ root.render(h1)
 
 
 // solution found at https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
-Array.prototype.random = function() {
+Array.prototype.random = function () {
     return this[Math.floor((Math.random() * this.length))];
 }
 
 // source text from https://github.com/ubuntu/gnome-shell-extension-appindicator/blob/5ebb018e7b2d0219d3cf25c69f5d988b7a53121b/indicatorStatusIcon.js
-import text from "/json/text.json"
+async function fetchText() {
+    const requestURL = "https://github.com/viggoStrom/hackingSim/blob/master/script/json/text.json"
+    const request = new Request(requestURL)
+
+    const response = await fetch(request)
+    const value = await response.json()
+
+    return value
+}
+
+const text = fetchText()
+
 // const codeSnippets = [
 //     "const AppDisplay = imports.ui.appDisplay;",
 //     "const Main = imports.ui.main;",
@@ -36,7 +47,7 @@ import text from "/json/text.json"
 //     "const PanelMenu = imports.ui.panelMenu;"
 // ]
 
-const codeSnippets = text.row
+const codeSnippets = text.rows
 
 const indent = "\u00A0\u00A0\u00A0\u00A0"
 const linesToBeDrawBeforeScrolling = Math.floor(window.innerHeight * .8 / 21)
