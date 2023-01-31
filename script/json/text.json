@@ -1,7 +1,5 @@
 {
 	"rows": [
-		
-		"",
 		"function addIconToPanel(statusIcon) {",
 		"\tif (!(statusIcon instanceof BaseStatusIcon))",
 		"\t\tthrow TypeError(`Unexpected icon type: ${statusIcon}`);",

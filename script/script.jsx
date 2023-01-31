@@ -1,5 +1,5 @@
 
-const randomIpGen = () => {
+function randomIpGen() {
     let randomIPv4 = Math.floor(Math.random() * 256).toString()
 
     for (let index = 0; index < 3; index++) {
@@ -20,12 +20,6 @@ const h1 = <h1>Connecting to: {randomIpGen()}</h1>
 let root = ReactDOM.createRoot(document.querySelector("header span"))
 root.render(h1)
 
-
-
-// solution found at https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
-Array.prototype.random = function () {
-    return this[Math.floor((Math.random() * this.length))];
-}
 
 // defualt text until json loads
 let text = {}
@@ -55,31 +49,42 @@ async function fetchText() {
 }
 fetchText()
 
-const indent = "\u00A0\u00A0\u00A0\u00A0"
-const linesToBeDrawBeforeScrolling = Math.floor(window.innerHeight * .8 / 21)
+const indent = "\u00A0 \u00A0 \u00A0 \u00A0"
+const initalLi = document.querySelector("section ul li")
+const heightOfLi = document.querySelector("section ul li").offsetHeight; initalLi.remove()
+const numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / heightOfLi)
+const linesPerKeypress = 1
+const textColor = "#339933"
+const backgroundColor = "#111111"
+
 
 let linesOfText = []
-let i = 0
+let index = 0
 
 root = ReactDOM.createRoot(document.querySelector("section"))
 
 document.addEventListener("keyup", (event) => {
     let codeSnippets = text.rows
 
-    if (document.querySelectorAll("section ul li").length > linesToBeDrawBeforeScrolling) {
+    if (document.querySelectorAll("section ul li").length > numberOfLinesOnScreen) {
         document.querySelectorAll("section ul li")[0].remove()
     }
 
-    linesOfText.push(codeSnippets[i]);
-    linesOfText[i].replace("\t", indent)
+    linesOfText.push(codeSnippets[index]);
+    if (linesOfText[index] == "") {
+        linesOfText[index] = <br></br>
+    } else {
+        linesOfText[index] = linesOfText[index].replaceAll("\t", indent)
+    }
+
     var completeListToBeRendered = linesOfText.map((row) =>
         <li>{row}</li>
     );
 
-    if (i >= text.rows.length) {
-        i = 0
+    if (index >= text.rows.length) {
+        index = 0
     } else {
-        i++
+        index++
     }
 
     root.render(<ul>{completeListToBeRendered}</ul>)
