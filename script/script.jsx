@@ -59,7 +59,7 @@ const backgroundColor = "#111111"
 
 
 let linesOfText = []
-let index = 0
+let index = 500
 
 root = ReactDOM.createRoot(document.querySelector("section"))
 
@@ -70,7 +70,7 @@ document.addEventListener("keyup", (event) => {
         document.querySelectorAll("section ul li")[0].remove()
     }
 
-    linesOfText.push(codeSnippets[index]);
+    linesOfText[index] = codeSnippets[index];
     if (linesOfText[index] == "") {
         linesOfText[index] = <br></br>
     } else {
@@ -81,6 +81,7 @@ document.addEventListener("keyup", (event) => {
         <li>{row}</li>
     );
 
+    console.log(text.rows.length, index);
     if (index >= text.rows.length) {
         index = 0
     } else {
