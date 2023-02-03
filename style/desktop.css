@@ -5,7 +5,7 @@
 body {
     background-color: #111111;
     font-family: "Roboto Mono", "Courier New", monospace;
-    color: #339933;
+    color: #008e00;
 }
 
 header {
@@ -43,4 +43,8 @@ section ul li {
     margin: 0 0 0 1rem;
     padding: 0;
     list-style-type: none;
+}
+
+footer{
+    
 }
