@@ -64,7 +64,7 @@ let index = 500
 root = ReactDOM.createRoot(document.querySelector("section"))
 
 document.addEventListener("keyup", (event) => {
-    let codeSnippets = text.rows
+    let codeSnippets = text.rows // make static
 
     if (document.querySelectorAll("section ul li").length > numberOfLinesOnScreen) {
         document.querySelectorAll("section ul li")[0].remove()
