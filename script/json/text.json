@@ -564,7 +564,6 @@
 		"\t\tthis._icon.set_y_align(Clutter.ActorAlign.CENTER);",
 		"\t\tthis._icon.set_x_align(Clutter.ActorAlign.CENTER);",
 		"\t}",
-		"});",
-		""
+		"});"
 	]
 }

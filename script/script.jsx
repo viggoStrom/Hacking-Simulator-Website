@@ -1,12 +1,20 @@
 class scrollingText {
     constructor() {
+        this.indent = "\u00A0 \u00A0 \u00A0 "
+        this.initalLi = document.querySelector("section ul li")
+        this.heightOfLi = document.querySelector("section ul li").offsetHeight; this.initalLi.remove()
+        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
+        this.linesPerKeypress = 1
+        this.textColor = "#008e00"
+        this.backgroundColor = "#111111"
+        this.startingIndex = 0
+        this.smoothTyping = false
 
+        document.querySelector("body").style.backgroundColor = this.backgroundColor
+        document.querySelector("body").style.color = this.textColor
     }
 
     main = () => {
-
-
-
         // defualt text until json loads
         let text = {}
         text.rows = [
@@ -47,49 +55,47 @@ class scrollingText {
             try {
                 text = json
             } catch (error) {
-
+                fetchText()
             }
         }
         fetchText()
 
-        const indent = "\u00A0 \u00A0 \u00A0 "
-        const initalLi = document.querySelector("section ul li")
-        const heightOfLi = document.querySelector("section ul li").offsetHeight; initalLi.remove()
-        // const numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / heightOfLi)
-        const numberOfLinesOnScreen = 29
-        const linesPerKeypress = 1
-        const textColor = "#008e00"
-        const backgroundColor = "#111111"
 
         let linesOfText = []
-        let index = 0
+        let index = this.startingIndex - 1
+        let incrementer = index
 
         const root = ReactDOM.createRoot(document.querySelector("section"))
 
         document.addEventListener("keyup", (event) => {
-            let codeSnippets = text.rows // make static
+            let codeSnippets = text.rows // to make sure the json files contents is used
 
-            if (document.querySelectorAll("section ul li").length > numberOfLinesOnScreen) {
+            if (index >= text.rows.length - 1) {
+                index = this.startingIndex - 1
+                return
+            } else {
+                index++
+                incrementer++
+            }
+
+            if (document.querySelectorAll("section ul li").length >= this.numberOfLinesOnScreen) {
                 document.querySelectorAll("section ul li")[0].remove()
             }
 
-            linesOfText[index] = codeSnippets[index];
-            if (linesOfText[index] == "") {
-                linesOfText[index] = <br></br>
-            } else {
-                linesOfText[index] = linesOfText[index].replaceAll("\t", indent)
+            linesOfText[incrementer] = codeSnippets[index];
+
+            if (linesOfText[incrementer] == "") {
+                linesOfText[incrementer] = " "
+            }
+            if (linesOfText[incrementer].split('')[0] == "\t") {
+                linesOfText[incrementer] = linesOfText[incrementer].replaceAll("\t", this.indent)
             }
 
-            var completeListToBeRendered = linesOfText.map((row) =>
+            let completeListToBeRendered = linesOfText.map((row) =>
                 <li>{row}</li>
             );
 
             console.log(text.rows.length, index);
-            if (index >= text.rows.length) {
-                index = 0
-            } else {
-                index++
-            }
 
             root.render(<ul>{completeListToBeRendered}</ul>)
         });
