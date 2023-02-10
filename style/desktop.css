@@ -30,8 +30,33 @@ header img:hover {
     filter: invert(14%) sepia(0%) saturate(581%) hue-rotate(147deg) brightness(98%) contrast(81%);
 }
 
+#configMenuAlignmentWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#configMenu {
+    position: absolute;
+    /* display: none; */
+    display: block;
+
+    margin: 1vh;
+    height: 90vh;
+    max-width: 90vw;
+    min-width: 50vw;
+    aspect-ratio: .9;
+
+    background-color: #363636;
+    border-radius: .4%;
+}
+
+#configMenu p {
+    margin: 2vh;
+    color: white;
+}
+
 section ul {
-    margin: 1rem 0 0 0 ;
+    margin: 1rem 0 0 0;
     padding: 0;
     max-width: 90%;
     height: 80vh;
@@ -43,8 +68,4 @@ section ul li {
     margin: 0 0 0 1rem;
     padding: 0;
     list-style-type: none;
-}
-
-footer{
-    
 }

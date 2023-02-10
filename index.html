@@ -22,12 +22,21 @@
 </head>
 
 <body>
+    <div id="configMenuAlignmentWrapper">
+        <table id="configMenu">
+            <tr>
+                <th>X</th>
+                <th>OBS! this is just a webtoy and does not condone hacking</th>
+            </tr>
+        </table>
+    </div>
+
     <header>
         <span>
             <h1>Connecting to: ...</h1>
         </span>
 
-        <img onclick="" src="assets/icons/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="Options">
+        <img onclick="openConfigMenu()" src="assets/icons/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="Options"></img>
     </header>
 
     <section>
@@ -40,6 +49,7 @@
     <script type="text/jsx" data-type="module" src="script/randomIp.jsx"></script>
     <script type="application/json" src="script/json/text.json"></script>
     <script type="application/json" src="script/json/config.json"></script>
+    <script src="script/configHandler.js"></script>
     <script type="text/jsx" data-type="module" src="script/script.jsx"></script>
 </body>
 
