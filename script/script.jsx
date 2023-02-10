@@ -35,6 +35,23 @@ class scrollingText {
         }
     }
 
+    async fetchConfig() {
+        const requestURL = "./script/json/config.json"
+        const request = new Request(requestURL)
+        console.log("request sent");
+
+        console.log("awaiting response");
+        const response = await fetch(request)
+        const json = await response.json()
+        console.log("response recieved");
+        try {
+            this.text = json
+        } catch (error) {
+            console.error("failed to fetch json");
+            fetchText()
+        }
+    }
+
     updateConfig() {
         this.indent = ""
         for (let index = 0; index < this.indetSize; index++) {
