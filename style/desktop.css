@@ -41,27 +41,39 @@ header img:hover {
     position: absolute;
     display: grid;
     /* display: none; */
-    grid-template-columns: auto auto auto;
+    grid-template-columns: max-content auto auto;
+    grid-template-rows: max-content auto auto;
     gap: 1vh;
 
-    margin: 1vh;
     height: 90vh;
     max-width: 90vw;
-    min-width: 50vw;
+    min-width: 70vw;
     aspect-ratio: .9;
+    margin: 1rem;
 
     background-color: #363636;
     color: white;
     border-radius: .4%;
 }
 
-#configMenu div {
-
+#configMenu a {
+    font-size: 3rem;
+    cursor: pointer;
+    margin: 0 .4rem 0 .4rem;
+    height: min-content;
+    rotate: 45deg;
 }
 
 #configMenu p:first-of-type {
     grid-column-start: 2;
     grid-column-end: 4;
+    margin: .5rem auto .5rem auto;
+    
+    font-size: larger;
+    
+    display: flex;
+    align-self: center;
+    text-align: center;
 }
 
 section ul {
