@@ -1,6 +1,7 @@
 class scrollingText {
     constructor() {
-        this.indent = "\u00A0 \u00A0 \u00A0 "
+        this.indetSize = 8
+        this.indent = "\u00A0\u00A0\u00A0\u00A0"
         this.initalLi = document.querySelector("section ul li")
         this.heightOfLi = document.querySelector("section ul li").offsetHeight; this.initalLi.remove()
         this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
@@ -9,11 +10,10 @@ class scrollingText {
         this.backgroundColor = "#111111"
         this.startingIndex = 0
         this.smoothTyping = false
-        
-        this.root = ReactDOM.createRoot(document.querySelector("section"))
 
-        document.querySelector("body").style.backgroundColor = this.backgroundColor
-        document.querySelector("body").style.color = this.textColor
+        this.root = ReactDOM.createRoot(document.querySelector("section"))
+        
+        this.fetchText()
     }
 
     // source text from https://github.com/ubuntu/gnome-shell-extension-appindicator/blob/5ebb018e7b2d0219d3cf25c69f5d988b7a53121b/indicatorStatusIcon.js
@@ -30,8 +30,23 @@ class scrollingText {
         try {
             this.text = json
         } catch (error) {
+            console.error("failed to fetch json");
             fetchText()
         }
+    }
+
+    updateConfig() {
+        this.indent = ""
+        for (let index = 0; index < this.indetSize; index++) {
+            this.indent = this.indent.concat("\u00A0")
+        }
+
+        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
+        this.linesPerKeypress = 1
+        this.smoothTyping = false
+
+        document.querySelector("body").style.backgroundColor = this.backgroundColor
+        document.querySelector("body").style.color = this.textColor
     }
 
     writeRow() {
@@ -51,9 +66,6 @@ class scrollingText {
 
         this.linesOfText[this.incrementer] = codeSnippets[this.index];
 
-        if (this.linesOfText[this.incrementer] == "") {
-            this.linesOfText[this.incrementer] = " "
-        }
         if (this.linesOfText[this.incrementer].split('')[0] == "\t") {
             this.linesOfText[this.incrementer] = this.linesOfText[this.incrementer].replaceAll("\t", this.indent)
         }
@@ -94,17 +106,18 @@ class scrollingText {
             "}",
         ]
 
-        this.fetchText()
-
         this.linesOfText = []
         this.index = this.startingIndex - 1
         this.incrementer = this.index
 
         document.addEventListener("keyup", (event) => {
-            this.writeRow()
+            for (let index = 0; index < this.linesPerKeypress; index++) {
+                this.writeRow()
+            }
         });
     }
 }
 
 const text = new scrollingText()
+text.updateConfig()
 text.main()
