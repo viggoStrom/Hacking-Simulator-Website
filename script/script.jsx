@@ -1,7 +1,7 @@
 class scrollingText {
     constructor() {
         this.indetSize = 8
-        this.indent = "\u00A0\u00A0\u00A0\u00A0"
+        this.indent = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"
         this.initalLi = document.querySelector("section ul li")
         this.heightOfLi = document.querySelector("section ul li").offsetHeight; this.initalLi.remove()
         this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
@@ -12,7 +12,7 @@ class scrollingText {
         this.smoothTyping = false
 
         this.root = ReactDOM.createRoot(document.querySelector("section"))
-        
+
         this.fetchText()
     }
 
@@ -21,34 +21,34 @@ class scrollingText {
     async fetchText() {
         const requestURL = "./script/json/text.json"
         const request = new Request(requestURL)
-        console.log("request sent");
+        console.log("source text: request sent");
 
-        console.log("awaiting response");
+        console.log("source text: awaiting response");
         const response = await fetch(request)
         const json = await response.json()
-        console.log("response recieved");
+        console.log("source text: response recieved");
         try {
             this.text = json
         } catch (error) {
-            console.error("failed to fetch json");
-            fetchText()
+            console.error("source text: failed to fetch (json)");
+            this.fetchText()
         }
     }
 
     async fetchConfig() {
         const requestURL = "./script/json/config.json"
         const request = new Request(requestURL)
-        console.log("request sent");
+        console.log("config file: request sent");
 
-        console.log("awaiting response");
+        console.log("config file: awaiting response");
         const response = await fetch(request)
         const json = await response.json()
-        console.log("response recieved");
+        console.log("config file: response recieved");
         try {
-            this.text = json
+            this.config = json
         } catch (error) {
-            console.error("failed to fetch json");
-            fetchText()
+            console.error("config file: failed to fetch config (json)");
+            this.fetchConfig()
         }
     }
 
@@ -97,7 +97,7 @@ class scrollingText {
     }
 
     main = () => {
-        // defualt text until json loads
+        // defualt text until json loads (shouldnt really be necessary)
         this.text = {}
         this.text.rows = [
             "function addIconToPanel(statusIcon) {",
