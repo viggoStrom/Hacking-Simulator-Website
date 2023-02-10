@@ -36,9 +36,13 @@ header img:hover {
 }
 
 #configMenu {
+    z-index: 999;
+
     position: absolute;
+    display: grid;
     /* display: none; */
-    display: block;
+    grid-template-columns: auto auto auto;
+    gap: 1vh;
 
     margin: 1vh;
     height: 90vh;
@@ -47,12 +51,17 @@ header img:hover {
     aspect-ratio: .9;
 
     background-color: #363636;
+    color: white;
     border-radius: .4%;
 }
 
-#configMenu p {
-    margin: 2vh;
-    color: white;
+#configMenu div {
+
+}
+
+#configMenu p:first-of-type {
+    grid-column-start: 2;
+    grid-column-end: 4;
 }
 
 section ul {
