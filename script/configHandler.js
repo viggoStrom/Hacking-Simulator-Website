@@ -10,7 +10,7 @@ function openConfigMenu() {
     }
 }
 
-fetch("/json/config.json")
+fetch("./script/json/config.json")
   .then(response => response.json())
   .then(data => {
     // do something with the data
