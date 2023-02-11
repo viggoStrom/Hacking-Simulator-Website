@@ -10,6 +10,8 @@ class scrollingText {
         this.backgroundColor = "#111111"
         this.startingIndex = 0
         this.smoothTyping = false
+        
+        this.configOpen = false
 
         this.root = ReactDOM.createRoot(document.querySelector("section"))
 
@@ -91,8 +93,6 @@ class scrollingText {
             <li>{row}</li>
         );
 
-        console.log(codeSnippets.length, this.index);
-
         this.root.render(<ul>{completeListToBeRendered}</ul>)
     }
 
@@ -128,6 +128,9 @@ class scrollingText {
         this.incrementer = this.index
 
         document.addEventListener("keyup", (event) => {
+            if (this.configOpen) {
+                return
+            }
             for (let index = 0; index < this.linesPerKeypress; index++) {
                 this.writeRow()
             }
@@ -135,6 +138,6 @@ class scrollingText {
     }
 }
 
-const text = new scrollingText()
+export const text = new scrollingText()
 text.updateConfig()
 text.main()

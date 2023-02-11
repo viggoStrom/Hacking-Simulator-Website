@@ -20,6 +20,7 @@ h1 {
 }
 
 header img {
+    cursor: pointer;
     margin: 0 1rem 0 0;
     height: 3rem;
     aspect-ratio: 1/1;
@@ -39,41 +40,49 @@ header img:hover {
     z-index: 999;
 
     position: absolute;
-    display: grid;
-    /* display: none; */
-    grid-template-columns: max-content auto auto;
-    grid-template-rows: max-content auto auto;
+    display: none;
+    grid-template-columns: auto auto max-content;
+    grid-template-rows: max-content max-content;
     gap: 1vh;
 
-    height: 90vh;
+    min-height: 90vh;
     max-width: 90vw;
     min-width: 70vw;
-    aspect-ratio: .9;
     margin: 1rem;
 
     background-color: #363636;
     color: white;
-    border-radius: .4%;
-}
-
-#configMenu a {
-    font-size: 3rem;
-    cursor: pointer;
-    margin: 0 .4rem 0 .4rem;
-    height: min-content;
-    rotate: 45deg;
+    border-radius: .8%;
 }
 
 #configMenu p:first-of-type {
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
     margin: .5rem auto .5rem auto;
-    
+
     font-size: larger;
-    
+
     display: flex;
     align-self: center;
     text-align: center;
+}
+
+#configMenu img {
+    cursor: pointer;
+    height: 2.5rem;
+    margin: .4rem;
+    aspect-ratio: 1/1;
+    filter: invert(93%) sepia(42%) saturate(2%) hue-rotate(20deg) brightness(104%) contrast(101%);
+}
+
+#configMenu img:hover {
+    filter: invert(53%) sepia(0%) saturate(0%) hue-rotate(181deg) brightness(90%) contrast(87%);
+}
+
+#configMenu ul {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: max-content;
 }
 
 section ul {
