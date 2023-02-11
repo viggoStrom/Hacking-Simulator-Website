@@ -32,12 +32,15 @@ header img:hover {
 }
 
 #configMenuAlignmentWrapper {
+    position: absolute;
     display: flex;
     justify-content: center;
+    height: 98vh;
+    width: 99vw;
 }
 
 #configMenu {
-    z-index: 999;
+    z-index: 10;
 
     position: absolute;
     grid-template-columns: auto auto max-content;
