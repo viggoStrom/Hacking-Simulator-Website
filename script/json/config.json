@@ -3,8 +3,8 @@
     "indent": "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
     "numberOfLinesOnScreen": 27,
     "linesPerKeypress": 1,
-    "this.textColor": "#008e00",
-    "this.backgroundColor": "#111111",
-    "this.startingIndex": 0,
-    "this.smoothTyping": false
+    "textColor": "#008e00",
+    "backgroundColor": "#111111",
+    "startingIndex": 0,
+    "smoothTyping": false
 }

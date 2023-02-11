@@ -40,7 +40,6 @@ header img:hover {
     z-index: 999;
 
     position: absolute;
-    display: none;
     grid-template-columns: auto auto max-content;
     grid-template-rows: max-content max-content;
     gap: 1vh;

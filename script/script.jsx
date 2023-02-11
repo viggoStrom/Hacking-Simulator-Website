@@ -5,7 +5,7 @@ class scrollingText {
         this.initalLi = document.querySelector("section ul li")
         this.heightOfLi = document.querySelector("section ul li").offsetHeight; this.initalLi.remove()
         this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
-        this.linesPerKeypress = 1
+        this.linesPerKeypress = 2
         this.textColor = "#008e00"
         this.backgroundColor = "#111111"
         this.startingIndex = 0
@@ -60,9 +60,9 @@ class scrollingText {
             this.indent = this.indent.concat("\u00A0")
         }
 
-        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
-        this.linesPerKeypress = 1
-        this.smoothTyping = false
+        // this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
+        // this.linesPerKeypress = 2
+        // this.smoothTyping = false
 
         document.querySelector("body").style.backgroundColor = this.backgroundColor
         document.querySelector("body").style.color = this.textColor
@@ -132,6 +132,7 @@ class scrollingText {
                 return
             }
             for (let index = 0; index < this.linesPerKeypress; index++) {
+                this.updateConfig()
                 this.writeRow()
             }
         });
