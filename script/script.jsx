@@ -109,9 +109,9 @@ class scrollingText {
         this.incrementer = this.index
 
         document.addEventListener("keyup", (event) => {
+            this.updateConfig()
             if (localStorage.getItem("configOpen") == "false") {   
                 for (let index = 0; index < this.linesPerKeypress; index++) {
-                    this.updateConfig()
                     this.writeRow()
                 }
             }

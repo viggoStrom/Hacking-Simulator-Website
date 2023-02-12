@@ -41,4 +41,4 @@ function clearAllText() {
 
 console.log(localStorage);
 
-// openConfigMenu()
+openConfigMenu()
