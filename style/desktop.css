@@ -40,7 +40,7 @@ header img:hover {
     z-index: 10;
 
     position: absolute;
-    grid-template-columns: auto auto max-content;
+    grid-template-columns: auto auto max-content max-content;
     grid-template-rows: max-content auto max-content;
     gap: 1vh;
 
@@ -68,7 +68,7 @@ header img:hover {
 #configMenu img {
     cursor: pointer;
     height: 2.5rem;
-    margin: .4rem;
+    margin: .1rem;
     aspect-ratio: 1/1;
     filter: invert(93%) sepia(42%) saturate(2%) hue-rotate(20deg) brightness(104%) contrast(101%);
 }

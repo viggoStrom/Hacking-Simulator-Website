@@ -11,6 +11,7 @@ function openConfigMenu() {
     }
 }
 
+
 const config = {
     "indentSize": 8,
     "indent": "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
@@ -20,15 +21,24 @@ const config = {
     "backgroundColor": "#111111",
     "startingIndex": 0,
     "smoothTyping": false,
-    "configOpen": false,
+    "configOpen": false
 }
 
-for (const key in config) {
-    if (Object.hasOwnProperty.call(config, key)) {
-        localStorage.setItem(key, config[key])
+
+if (localStorage.length != config.length) {
+    for (const key in config) {
+        if (Object.hasOwnProperty.call(config, key)) {
+            localStorage.setItem(key, config[key])
+        }
     }
+}
+
+function clearAllText() {
+    document.querySelectorAll("section ul li").forEach(element => {
+        element.remove()
+    });
 }
 
 console.log(localStorage);
 
-openConfigMenu()
+// openConfigMenu()

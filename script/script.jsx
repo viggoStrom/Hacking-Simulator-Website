@@ -77,7 +77,7 @@ class scrollingText {
         this.root.render(<ul>{completeListToBeRendered}</ul>)
     }
 
-    main = () => {
+    main() {
         // defualt text until json loads (shouldnt really be necessary)
         this.text = {}
         this.text.rows = [
@@ -109,9 +109,11 @@ class scrollingText {
         this.incrementer = this.index
 
         document.addEventListener("keyup", (event) => {
-            for (let index = 0; index < this.linesPerKeypress; index++) {
-                this.updateConfig()
-                this.writeRow()
+            if (localStorage.getItem("configOpen") == "false") {   
+                for (let index = 0; index < this.linesPerKeypress; index++) {
+                    this.updateConfig()
+                    this.writeRow()
+                }
             }
         });
     }
