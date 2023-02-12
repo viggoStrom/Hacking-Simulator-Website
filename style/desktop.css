@@ -86,10 +86,13 @@ header img:hover {
 #configMenu ul li {
     display: flex;
     flex-flow: row wrap;
+    font-family: inherit;
+    padding: .6vh 0 .6vh 10vw;
 }
 
 #configMenu ul li input {
     margin-left: 1vw;
+    text-align: center;
 }
 
 #configMenu ul li p {
