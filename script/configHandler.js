@@ -1,43 +1,34 @@
 const configMenu = document.getElementById("configMenu")
-const configMenuWrapper = document.getElementById("configMenuAlignmentWrapper")
-
-configMenuWrapper.addEventListener("click", function(event) {
-    event.stopPropagation();
-  });  
 
 function openConfigMenu() {
-    console.log('Clicked:', window.event.target);
-    window.event.stopPropagation()
 
     if (configMenu.style.display == "none") {
         configMenu.style.display = "grid"
-        configMenuWrapper.setAttribute("onClick","openConfigMenu()")
-        // text.configOpen = true
+        localStorage.setItem("configOpen", true)
     } else {
         configMenu.style.display = "none"
-        configMenuWrapper.setAttribute("onClick","")
-        // text.configOpen = false
+        localStorage.setItem("configOpen", false)
     }
 }
 
-// fetch("./script/json/config.json")
-//     .then(response => response.json())
-//     .then(data => {
-//         // do something with the data
-//         data.textColor = "#ffffff"
-//         console.log(data);
-//     })
-//     .catch(error => console.error(error));
+const config = {
+    "indentSize": 8,
+    "indent": "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
+    "numberOfLinesOnScreen": 27,
+    "linesPerKeypress": 1,
+    "textColor": "#008e00",
+    "backgroundColor": "#111111",
+    "startingIndex": 0,
+    "smoothTyping": false,
+    "configOpen": false,
+}
 
-if (localStorage.length < 8) {
-    localStorage.setItem("indentSize", 8)
-    localStorage.setItem("indent", "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0")
-    localStorage.setItem("numberOfLinesOnScreen", "auto") // Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
-    localStorage.setItem("linesPerKeypress", 1)
-    localStorage.setItem("textColor", "#008e00")
-    localStorage.setItem("backgroundColor", "#111111")
-    localStorage.setItem("startingIndex", 0)
-    localStorage.setItem("smoothTyping", false)
+for (const key in config) {
+    if (Object.hasOwnProperty.call(config, key)) {
+        localStorage.setItem(key, config[key])
+    }
 }
 
 console.log(localStorage);
+
+openConfigMenu()

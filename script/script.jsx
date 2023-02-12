@@ -1,17 +1,17 @@
 class scrollingText {
     constructor() {
-        this.indetSize = 8
-        this.indent = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"
         this.initalLi = document.querySelector("section ul li")
         this.heightOfLi = document.querySelector("section ul li").offsetHeight; this.initalLi.remove()
-        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
-        this.linesPerKeypress = 1
-        this.textColor = "#008e00"
-        this.backgroundColor = "#111111"
-        this.startingIndex = 0
-        this.smoothTyping = false
-        
-        this.configOpen = false
+
+        this.indetSize = localStorage.getItem("indentSize")
+        this.indent = localStorage.getItem("indent")
+        this.numberOfLinesOnScreen = localStorage.getItem("numberOfLinesOnScreen")
+        this.linesPerKeypress = localStorage.getItem("linesPerKeypress")
+        this.textColor = localStorage.getItem("textColor")
+        this.backgroundColor = localStorage.getItem("backgroundColor")
+        this.startingIndex = localStorage.getItem("startingIndex")
+        this.smoothTyping = localStorage.getItem("smoothTyping")
+        this.configOpen = localStorage.getItem("configOpen")
 
         this.root = ReactDOM.createRoot(document.querySelector("section"))
 
@@ -43,9 +43,7 @@ class scrollingText {
             this.indent = this.indent.concat("\u00A0")
         }
 
-        // this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
-        // this.linesPerKeypress = 2
-        // this.smoothTyping = false
+        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
 
         document.querySelector("body").style.backgroundColor = this.backgroundColor
         document.querySelector("body").style.color = this.textColor
@@ -111,9 +109,6 @@ class scrollingText {
         this.incrementer = this.index
 
         document.addEventListener("keyup", (event) => {
-            if (this.configOpen) {
-                return
-            }
             for (let index = 0; index < this.linesPerKeypress; index++) {
                 this.updateConfig()
                 this.writeRow()
