@@ -53,7 +53,6 @@ class scrollingText {
             this.indent = this.indent.concat("\u00A0")
         }
 
-
         document.querySelector("body").style.backgroundColor = this.backgroundColor
         document.querySelector("body").style.color = this.textColor
     }
