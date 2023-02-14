@@ -11,7 +11,6 @@ function openConfigMenu() {
     }
 }
 
-
 const config = {
     "indentSize": 8,
     "indent": "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",

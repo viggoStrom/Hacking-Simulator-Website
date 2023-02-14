@@ -2,14 +2,14 @@ class scrollingText {
     constructor() {
         this.initalLi = document.querySelector("section ul li")
         this.heightOfLi = document.querySelector("section ul li").offsetHeight; this.initalLi.remove()
-
-        this.indetSize = localStorage.getItem("indentSize")
+        
+        this.indetSize = parseInt(localStorage.getItem("indentSize"))
         this.indent = localStorage.getItem("indent")
-        this.numberOfLinesOnScreen = localStorage.getItem("numberOfLinesOnScreen")
-        this.linesPerKeypress = localStorage.getItem("linesPerKeypress")
+        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi)
+        this.linesPerKeypress = parseInt(localStorage.getItem("linesPerKeypress"))
         this.textColor = localStorage.getItem("textColor")
         this.backgroundColor = localStorage.getItem("backgroundColor")
-        this.startingIndex = localStorage.getItem("startingIndex")
+        this.startingIndex = parseInt(localStorage.getItem("startingIndex"))
         this.smoothTyping = localStorage.getItem("smoothTyping")
         this.configOpen = localStorage.getItem("configOpen")
 
@@ -38,12 +38,21 @@ class scrollingText {
     }
 
     updateConfig() {
+        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
+
+        this.indetSize = parseInt(localStorage.getItem("indentSize"))
+        this.numberOfLinesOnScreen = parseInt(localStorage.getItem("numberOfLinesOnScreen"))
+        this.linesPerKeypress = parseInt(localStorage.getItem("linesPerKeypress"))
+        this.textColor = localStorage.getItem("textColor")
+        this.backgroundColor = localStorage.getItem("backgroundColor")
+        this.startingIndex = localStorage.getItem("startingIndex")
+        this.smoothTyping = localStorage.getItem("smoothTyping")
+
         this.indent = ""
         for (let index = 0; index < this.indetSize; index++) {
             this.indent = this.indent.concat("\u00A0")
         }
 
-        this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi) //auto (27 lines)
 
         document.querySelector("body").style.backgroundColor = this.backgroundColor
         document.querySelector("body").style.color = this.textColor
@@ -110,7 +119,7 @@ class scrollingText {
 
         document.addEventListener("keyup", (event) => {
             this.updateConfig()
-            if (localStorage.getItem("configOpen") == "false") {   
+            if (localStorage.getItem("configOpen") == "false") {
                 for (let index = 0; index < this.linesPerKeypress; index++) {
                     this.writeRow()
                 }
