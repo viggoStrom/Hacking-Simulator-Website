@@ -33,11 +33,10 @@ const defaultConfig = {
     "configOpen": false
 }
 
-function setToDefault() {
-    localStorage.clear()
-    for (const key in defaultConfig) {
-        localStorage.setItem(key, defaultConfig[key])
-    }
+function setToDefault(element) {
+    console.log(element.id);
+    localStorage.removeItem(element.id)
+    localStorage.setItem(element.id, defaultConfig[element.id])
     refreshConfigLi()
 }
 

@@ -41,7 +41,7 @@ header img:hover {
 
     position: absolute;
     grid-template-columns: auto auto max-content max-content;
-    grid-template-rows: max-content auto max-content;
+    grid-template-rows: max-content min-content auto max-content;
     gap: 1vh;
 
     min-height: 90vh;
@@ -54,7 +54,7 @@ header img:hover {
     border-radius: .8%;
 }
 
-#configMenu p:not(li p):first-of-type {
+#configMenu p:not(li p):not(#default p):first-of-type {
     grid-column: 1 / 3;
     margin: .5rem auto .5rem auto;
 
@@ -108,12 +108,24 @@ header img:hover {
 }
 
 #configMenu #default {
-    font-size: .9rem;
-    color: #626262;
-    cursor: pointer;
+    grid-column: 3 / span 2;
+    margin-top: 2.5vh;
+    margin-bottom: 1vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
 }
 
-#configMenu #default:hover {
+#configMenu #default p {
+    font-size: .9rem;
+    text-align: left;
+    color: #626262;
+    cursor: pointer;
+    height: max-content;
+    margin: 0;
+}
+
+#configMenu #default p:hover {
     filter: brightness(.8);
 }
 
@@ -138,6 +150,7 @@ header img:hover {
 #configMenu p:last-of-type {
     text-align: center;
     grid-column: 3 / 1;
+    grid-row: 4;
 }
 
 section ul {
