@@ -4,7 +4,7 @@ const li = configMenu.querySelectorAll("ul li")
 function refreshConfigLi() {
     li.forEach(element => {
         input = element.querySelector("input")
-        input.value = localStorage.getItem(input.id)
+        input.value = localStorage.getItem(input.className)
     });
     document.querySelector("body").style.backgroundColor = localStorage.getItem("backgroundColor")
     document.querySelector("body").style.color = localStorage.getItem("textColor")
@@ -34,12 +34,17 @@ const defaultConfig = {
 }
 
 function setToDefault(element) {
-    console.log(element.id);
-    localStorage.removeItem(element.id)
-    localStorage.setItem(element.id, defaultConfig[element.id])
+    console.log(element.className);
+    localStorage.removeItem(element.className)
+    localStorage.setItem(element.className, defaultConfig[element.className])
     refreshConfigLi()
 }
 
+function defaultEverything() {
+    document.querySelectorAll("#default p").forEach(element => {
+        setToDefault(element)
+    })
+}
 
 function clearAllText() {
     document.querySelectorAll("section ul li").forEach(element => {
@@ -50,11 +55,11 @@ function clearAllText() {
 const inputFields = document.querySelectorAll("#configMenu ul li input")
 
 function updateLocalStorage(element) {
-    localStorage.setItem(element.id, element.value)
+    localStorage.setItem(element.className, element.value)
     document.querySelector("body").style.backgroundColor = localStorage.getItem("backgroundColor")
     document.querySelector("body").style.color = localStorage.getItem("textColor")
 }
 
 if (localStorage.length <= 5) {
-    setToDefault()
+    defaultEverything()
 }

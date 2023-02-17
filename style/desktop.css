@@ -116,6 +116,7 @@ header img:hover {
     justify-content: space-between;
 }
 
+#defaultAll,
 #configMenu #default p {
     font-size: .9rem;
     text-align: left;
@@ -123,6 +124,10 @@ header img:hover {
     cursor: pointer;
     height: max-content;
     margin: 0;
+}
+
+#defaultAll {
+    grid-column: 2 / span 2;
 }
 
 #configMenu #default p:hover {

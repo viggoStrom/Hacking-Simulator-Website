@@ -32,47 +32,48 @@
             <ul>
                 <li>
                     <label for="numberOfLinesOnScreen">Lines of text before scrolling:</label>
-                    <input onchange="updateLocalStorage(this)" id="numberOfLinesOnScreen" type="number" value="27"
+                    <input onchange="updateLocalStorage(this)" class="numberOfLinesOnScreen" type="number" value="27"
                         min="1">
                 </li>
                 <li>
                     <label for="indentSize">Indent size:</label>
-                    <input onchange="updateLocalStorage(this)" id="indentSize" type="number" value="8" min="0">
+                    <input onchange="updateLocalStorage(this)" class="indentSize" type="number" value="8" min="0">
                 </li>
                 <li>
                     <label for="linesPerKeypress">Lines per keypress:</label>
-                    <input onchange="updateLocalStorage(this)" id="linesPerKeypress" type="number" value="1" min="0">
+                    <input onchange="updateLocalStorage(this)" class="linesPerKeypress" type="number" value="1" min="0">
                 </li>
                 <li>
                     <label for="textColor">Text color:</label>
-                    <input onchange="updateLocalStorage(this)" id="textColor" type="text" value="#008e00"
+                    <input onchange="updateLocalStorage(this)" class="textColor" type="text" value="#008e00"
                         pattern="^#[0-9a-fA-F]{6}$">
                 </li>
                 <li>
                     <label for="backgroundColor">Background color:</label>
-                    <input onchange="updateLocalStorage(this)" id="backgroundColor" type="text" value="#111111"
+                    <input onchange="updateLocalStorage(this)" class="backgroundColor" type="text" value="#111111"
                         pattern="^#[0-9a-fA-F]{6}$">
                 </li>
                 <li>
                     <label for="startingIndex">Starting index:</label>
-                    <input onchange="updateLocalStorage(this)" id="startingIndex" type="number" value="0" min="1"
+                    <input onchange="updateLocalStorage(this)" class="startingIndex" type="number" value="0" min="1"
                         max="550">
                 </li>
                 <li>
                     <label for="smoothTyping">Smooth typing:</label>
-                    <input onchange="updateLocalStorage(this)" id="smoothTyping" type="text" value="false"
+                    <input onchange="updateLocalStorage(this)" class="smoothTyping" type="text" value="false"
                         pattern="^(true|false)$">
                 </li>
             </ul>
             <div id="default">
-                <p onclick="setToDefault(this)" id="numberOfLinesOnScreen">Default</p>
-                <p onclick="setToDefault(this)" id="indentSize">Default</p>
-                <p onclick="setToDefault(this)" id="linesPerKeypress">Default</p>
-                <p onclick="setToDefault(this)" id="textColor">Default</p>
-                <p onclick="setToDefault(this)" id="backgroundColor">Default</p>
-                <p onclick="setToDefault(this)" id="startingIndex">Default</p>
-                <p onclick="setToDefault(this)" id="smoothTyping">Default</p>
+                <p onclick="setToDefault(this)" class="numberOfLinesOnScreen">Default</p>
+                <p onclick="setToDefault(this)" class="indentSize">Default</p>
+                <p onclick="setToDefault(this)" class="linesPerKeypress">Default</p>
+                <p onclick="setToDefault(this)" class="textColor">Default</p>
+                <p onclick="setToDefault(this)" class="backgroundColor">Default</p>
+                <p onclick="setToDefault(this)" class="startingIndex">Default</p>
+                <p onclick="setToDefault(this)" class="smoothTyping">Default</p>
             </div>
+            <p onclick="defaultEverything()" id="defaultAll" class="smoothTyping">Default All</p>
             <p>Source code on <a href="https://github.com/viggoStrom/hackingSim">github</a>. The code scrolling by is
                 from <a
                     href="https://github.com/ubuntu/gnome-shell-extension-appindicator/blob/5ebb018e7b2d0219d3cf25c69f5d988b7a53121b/indicatorStatusIcon.js">ubuntu</a>
