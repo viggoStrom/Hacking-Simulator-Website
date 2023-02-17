@@ -17,5 +17,5 @@ function randomIpGen() {
 
 const h1 = <h1>Connecting to: {randomIpGen()}</h1>
 
-let root = ReactDOM.createRoot(document.querySelector("header span"))
+let root = ReactDOM.createRoot(document.querySelector("header div"))
 root.render(h1)

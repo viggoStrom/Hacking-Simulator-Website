@@ -31,35 +31,35 @@
             <img onclick="openConfigMenu()" src="assets/icons/close_FILL0_wght700_GRAD0_opsz48.svg" alt="Close">
             <ul>
                 <li>
-                    <label for="numberOfLinesOnScreen">Lines of text before scrolling:</label>
+                    <label>Lines of text before scrolling:</label>
                     <input onchange="updateLocalStorage(this)" class="numberOfLinesOnScreen" type="number" value="27"
                         min="1">
                 </li>
                 <li>
-                    <label for="indentSize">Indent size:</label>
+                    <label>Indent size:</label>
                     <input onchange="updateLocalStorage(this)" class="indentSize" type="number" value="8" min="0">
                 </li>
                 <li>
-                    <label for="linesPerKeypress">Lines per keypress:</label>
+                    <label>Lines per keypress:</label>
                     <input onchange="updateLocalStorage(this)" class="linesPerKeypress" type="number" value="1" min="0">
                 </li>
                 <li>
-                    <label for="textColor">Text color:</label>
+                    <label>Text color:</label>
                     <input onchange="updateLocalStorage(this)" class="textColor" type="text" value="#008e00"
                         pattern="^#[0-9a-fA-F]{6}$">
                 </li>
                 <li>
-                    <label for="backgroundColor">Background color:</label>
+                    <label>Background color:</label>
                     <input onchange="updateLocalStorage(this)" class="backgroundColor" type="text" value="#111111"
                         pattern="^#[0-9a-fA-F]{6}$">
                 </li>
                 <li>
-                    <label for="startingIndex">Starting index:</label>
+                    <label>Starting index:</label>
                     <input onchange="updateLocalStorage(this)" class="startingIndex" type="number" value="0" min="1"
                         max="550">
                 </li>
                 <li>
-                    <label for="smoothTyping">Smooth typing:</label>
+                    <label>Smooth typing:</label>
                     <input onchange="updateLocalStorage(this)" class="smoothTyping" type="text" value="false"
                         pattern="^(true|false)$">
                 </li>
@@ -82,11 +82,11 @@
     </div>
 
     <header>
-        <span>
+        <div>
             <h1>Connecting to: ...</h1>
-        </span>
+        </div>
 
-        <img onclick="openConfigMenu()" src="assets/icons/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="Options"></img>
+        <img onclick="openConfigMenu()" src="assets/icons/settings_FILL0_wght400_GRAD0_opsz48.svg" alt="Options">
     </header>
 
     <section>
