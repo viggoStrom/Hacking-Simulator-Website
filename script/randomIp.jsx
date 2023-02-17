@@ -7,9 +7,9 @@ function randomIpGen() {
         randomIPv4 = randomIPv4.concat(".", number)
     }
     // adds leading zeroes to the numbers in the ip
-    randomIPv4 = randomIPv4.replace(/\d+/g, (m) => {
-        return "00".substring(m.length - 1) + m;
-    });
+    // randomIPv4 = randomIPv4.replace(/\d+/g, (m) => {
+    //     return "00".substring(m.length - 1) + m;
+    // });
     // im dont fully understand this but i know that regex is an appropriate solution to this problem
 
     return randomIPv4

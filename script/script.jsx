@@ -2,7 +2,7 @@ class scrollingText {
     constructor() {
         this.initalLi = document.querySelector("section ul li")
         this.heightOfLi = document.querySelector("section ul li").offsetHeight; this.initalLi.remove()
-        
+
         this.indetSize = parseInt(localStorage.getItem("indentSize"))
         this.indent = localStorage.getItem("indent")
         this.numberOfLinesOnScreen = Math.round(window.innerHeight * .7 / this.heightOfLi)
@@ -43,8 +43,6 @@ class scrollingText {
         this.indetSize = parseInt(localStorage.getItem("indentSize"))
         this.numberOfLinesOnScreen = parseInt(localStorage.getItem("numberOfLinesOnScreen"))
         this.linesPerKeypress = parseInt(localStorage.getItem("linesPerKeypress"))
-        this.textColor = localStorage.getItem("textColor")
-        this.backgroundColor = localStorage.getItem("backgroundColor")
         this.startingIndex = localStorage.getItem("startingIndex")
         this.smoothTyping = localStorage.getItem("smoothTyping")
 
@@ -52,9 +50,6 @@ class scrollingText {
         for (let index = 0; index < this.indetSize; index++) {
             this.indent = this.indent.concat("\u00A0")
         }
-
-        document.querySelector("body").style.backgroundColor = this.backgroundColor
-        document.querySelector("body").style.color = this.textColor
     }
 
     writeRow() {
@@ -127,6 +122,6 @@ class scrollingText {
     }
 }
 
-export const text = new scrollingText()
+const text = new scrollingText()
 text.updateConfig()
 text.main()
