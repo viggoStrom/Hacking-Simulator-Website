@@ -30,31 +30,31 @@
             <ul>
                 <li>
                     <label for="numberOfLinesOnScreen">Lines of text before scrolling:</label>
-                    <input id="numberOfLinesOnScreen" type="number" value="27">
+                    <input onchange="updateLocalStorage()" id="numberOfLinesOnScreen" type="number" value="27">
                 </li>
                 <li>
                     <label for="indentSize">Indent size:</label>
-                    <input id="indentSize" type="number" value="8">
+                    <input onchange="updateLocalStorage()" id="indentSize" type="number" value="8">
                 </li>
                 <li>
                     <label for="linesPerKeypress">Lines per keypress:</label>
-                    <input id="linesPerKeypress" type="number" value="1">
+                    <input onchange="updateLocalStorage()" id="linesPerKeypress" type="number" value="1">
                 </li>
                 <li>
                     <label for="textColor">Text color:</label>
-                    <input id="textColor" type="text" value="#008e00">
+                    <input onchange="updateLocalStorage()" id="textColor" type="text" value="#008e00">
                 </li>
                 <li>
                     <label for="backgroundColor">Background color:</label>
-                    <input id="backgroundColor" type="text" value="#111111">
+                    <input onchange="updateLocalStorage()" id="backgroundColor" type="text" value="#111111">
                 </li>
                 <li>
                     <label for="startingIndex">Starting index:</label>
-                    <input id="indentSize" type="number" value="0">
+                    <input onchange="updateLocalStorage()" id="indentSize" type="number" value="0">
                 </li>
                 <li>
                     <label for="smoothTyping">Smooth typing:</label>
-                    <input id="smoothTyping" type="text" value="false">
+                    <input onchange="updateLocalStorage()" id="smoothTyping" type="text" value="false">
                 </li>
             </ul>
             <p>Source code on <a href="https://github.com/viggoStrom/hackingSim">github</a>. The code scrolling by is
