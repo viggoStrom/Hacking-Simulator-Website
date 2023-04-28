@@ -1,7 +1,3 @@
-if (window.localStorage.length != 8) {
-    defaultEverything()
-}
-
 const configMenu = document.getElementById("configMenu")
 const li = configMenu.querySelectorAll("ul li")
 
@@ -61,4 +57,8 @@ function updateLocalStorage(element) {
     localStorage.setItem(element.className, element.value)
     document.querySelector("body").style.backgroundColor = localStorage.getItem("backgroundColor")
     document.querySelector("body").style.color = localStorage.getItem("textColor")
+}
+
+if (window.localStorage.length != 8) {
+    defaultEverything()
 }
