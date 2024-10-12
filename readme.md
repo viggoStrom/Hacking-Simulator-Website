@@ -9,3 +9,8 @@ Have you ever wanted to show off your computer wizardry skills? Just open this s
 
 ## Code Source
 The code that is scrolling by is from the [ubuntu project](https://github.com/ubuntu/gnome-shell-extension-appindicator/blob/5ebb018e7b2d0219d3cf25c69f5d988b7a53121b/indicatorStatusIcon.js).
+
+## Technologies
+- HTML
+- CSS
+- JavaScript
